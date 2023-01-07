@@ -12,7 +12,6 @@ export const Welcome = defineComponent({
                     <h1>山竹记账</h1>
                 </header>
                 <main><RouterView /></main>
-                <footer>底部</footer>
             </div>
         )
     }
