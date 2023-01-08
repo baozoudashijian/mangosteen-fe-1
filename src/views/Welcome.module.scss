@@ -1,8 +1,9 @@
 .welcome {
-    height: 100vh;
+    height: calc(100vh - var(--webcome-nav-height));
     display: flex;
     flex-direction: column;
-    background-image: linear-gradient(to bottom, #5d33be 0%, #8f4cd7 100%);
+    margin-bottom: var(--webcome-nav-height);
+    background-image: linear-gradient(to bottom, var(--welcome-bg-start) 0%, var(--welcome-bg-end) var(--webcome-nav-height));
     > header {
         flex-shrink: 0;
         display: flex;
