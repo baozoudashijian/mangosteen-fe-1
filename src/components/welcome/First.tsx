@@ -1,6 +1,6 @@
 import { defineComponent } from 'vue';
 import s from './First.module.scss'
-import pig from '../../assets/icons/pig.svg'
+import icon from '../../assets/icons/pig.svg'
 import { RouterLink } from 'vue-router';
 
 export const First = defineComponent({
@@ -8,7 +8,7 @@ export const First = defineComponent({
         return () => (
             <div class={s.wrapper}>
                 <div class={s.card}>
-                    <img src={pig} alt="" />
+                    <img src={icon} alt="" />
                     <h2>会挣钱<br />还要会省钱</h2>
                 </div>
                 <div class={s.actions}>
