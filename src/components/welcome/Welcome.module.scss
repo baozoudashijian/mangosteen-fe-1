@@ -18,21 +18,5 @@
             margin-top: 40px;
         }
     }
-    > .actions {
-        position: fixed;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        z-index: var(--z-index-bottom-nav);
-        background: var(--welcome-bg-end);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        height: var(--webcome-nav-height);
-        padding: 0 16px;
-        font-size: 24px;
-        color: var(--welcome-text);
-        > .fake {visibility: hidden;}
-    }
-
 }
+.fake {visibility: hidden;}
