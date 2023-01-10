@@ -17,3 +17,4 @@ export const Forth = () => (
         }}
     </WelcomeLayout>
 )
+Forth.displayName = "Forth"

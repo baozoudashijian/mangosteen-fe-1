@@ -17,3 +17,4 @@ export const Second = () => (
         }}
     </WelcomeLayout>
 )
+Second.displayName = "Second"
