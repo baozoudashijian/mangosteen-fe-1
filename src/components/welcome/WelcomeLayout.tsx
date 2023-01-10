@@ -1,5 +1,5 @@
 import { defineComponent } from 'vue';
-import s from './First.module.scss'
+import s from './Welcome.module.scss'
 import { RouterLink } from 'vue-router';
 
 export const WelcomeLayout = defineComponent({
