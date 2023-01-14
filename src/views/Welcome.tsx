@@ -4,36 +4,38 @@ import s from './Welcome.module.scss'
 import logo from '../assets/icons/logo.svg'
 import { useSwipe } from '../hooks/useSwipe';
 import { throttle } from '../shared/throttle';
+const pushMap: Record<string, string> = {
+    welcome1: 'welcome2',
+    welcome2: 'welcome3',
+    welcome3: 'welcome4',
+    welcome4: 'start',
+}
 
 export const Welcome = defineComponent({
     setup() {
         const main = ref<HTMLElement | null>(null)
         const router = useRouter()
         const route = useRoute()
-        const { direction, swipping } = useSwipe(main, {
-            beforeStart: (e) => e.preventDefault()
-        })
-        const pushMap: any = {
-            welcome1: 'welcome2',
-            welcome2: 'welcome3',
-            welcome3: 'welcome4',
-            welcome4: 'welcome1',
-        }
-        const push = throttle(() => {
-            if(route.name === 'welcome1') {
-                router.push('/welcome/2')
-            } else if (route.name === 'welcome2') {
-                router.push('/welcome/3')
-            } else if (route.name === 'welcome3') {
-                router.push('/welcome/4')
+        const { direction, distance } = useSwipe(main, {
+            beforeStart: (e) => e.preventDefault(),
+            beforeEnd: () => {
+                beforeEndPush()
             }
+        })
+        
+        const push = throttle(() => {
+            const name = (route.name || 'welcome1').toString()
+            router.push({ name: pushMap[name] })
         }, 500)
-        watchEffect(() => {
-            console.log(direction.value, 'direction')
-            if(swipping.value && direction.value === "right") {
+        const beforeEndPush = () => {
+            const distanceX = distance.value?.x || 0
+            if(direction.value === "right" && distanceX > 100) {
                 push()
             }
-        })
+        }
+        // watchEffect(() => {
+            
+        // })
         return () => (
             <div class={s.welcome}>
                 <header>
