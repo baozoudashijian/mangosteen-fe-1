@@ -1,15 +1,38 @@
 import { defineComponent, h, ref, Transition, VNode, watchEffect } from 'vue';
-import { RouteLocationNormalizedLoaded, RouterView } from 'vue-router';
+import { RouteLocationNormalizedLoaded, RouterView, useRoute, useRouter } from 'vue-router';
 import s from './Welcome.module.scss'
 import logo from '../assets/icons/logo.svg'
 import { useSwipe } from '../hooks/useSwipe';
+import { throttle } from '../shared/throttle';
 
 export const Welcome = defineComponent({
     setup() {
         const main = ref<HTMLElement | null>(null)
-        const { direction } = useSwipe(main)
+        const router = useRouter()
+        const route = useRoute()
+        const { direction, swipping } = useSwipe(main, {
+            beforeStart: (e) => e.preventDefault()
+        })
+        const pushMap: any = {
+            welcome1: 'welcome2',
+            welcome2: 'welcome3',
+            welcome3: 'welcome4',
+            welcome4: 'welcome1',
+        }
+        const push = throttle(() => {
+            if(route.name === 'welcome1') {
+                router.push('/welcome/2')
+            } else if (route.name === 'welcome2') {
+                router.push('/welcome/3')
+            } else if (route.name === 'welcome3') {
+                router.push('/welcome/4')
+            }
+        }, 500)
         watchEffect(() => {
             console.log(direction.value, 'direction')
+            if(swipping.value && direction.value === "right") {
+                push()
+            }
         })
         return () => (
             <div class={s.welcome}>
