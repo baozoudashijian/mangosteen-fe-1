@@ -1,4 +1,4 @@
-import { defineComponent, h, ref, Transition, VNode } from 'vue';
+import { defineComponent, h, ref, Transition, VNode, watchEffect } from 'vue';
 import { RouteLocationNormalizedLoaded, RouterView } from 'vue-router';
 import s from './Welcome.module.scss'
 import logo from '../assets/icons/logo.svg'
@@ -7,7 +7,10 @@ import { useSwipe } from '../hooks/useSwipe';
 export const Welcome = defineComponent({
     setup() {
         const main = ref<HTMLElement | null>(null)
-        useSwipe(main)
+        const { direction } = useSwipe(main)
+        watchEffect(() => {
+            console.log(direction.value, 'direction')
+        })
         return () => (
             <div class={s.welcome}>
                 <header>
