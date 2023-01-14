@@ -45,9 +45,16 @@
     height: 100%;
 }
 
-.slide_fade_enter_from {
+.slide_fade_enter_from_next {
     transform: translateX(100vw);
 }
-.slide_fade_leave_to {
+.slide_fade_leave_to_next {
     transform: translateX(-100vw);
+}
+
+.slide_fade_enter_from_prev {
+    transform: translateX(-100vw);
+}
+.slide_fade_leave_to_prev {
+    transform: translateX(100vw);
 }
