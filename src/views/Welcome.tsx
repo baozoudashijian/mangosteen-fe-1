@@ -3,52 +3,22 @@ import { RouteLocationNormalizedLoaded, RouterView, useRoute, useRouter } from '
 import s from './Welcome.module.scss'
 import logo from '../assets/icons/logo.svg'
 import { useSwipe } from '../hooks/useSwipe';
-import { throttle } from '../shared/throttle';
 import { useRouteDirection } from '../hooks/useRouteDirection';
-const pushMapNext: Record<string, string> = {
-    welcome1: 'welcome2',
-    welcome2: 'welcome3',
-    welcome3: 'welcome4',
-    welcome4: 'start',
-}
-const pushMapPrev: Record<string, string> = {
-    welcome1: 'welcome1',
-    welcome2: 'welcome1',
-    welcome3: 'welcome2',
-    welcome4: 'welcome3',
-}
+import { useRoutePush } from '../hooks/useRoutePush';
 
 export const Welcome = defineComponent({
     setup() {
         const main = ref<HTMLElement | null>(null)
-        const router = useRouter()
-        const route = useRoute()
+        
         const { direction, distance } = useSwipe(main, {
             beforeStart: (e) => e.preventDefault(),
             beforeEnd: () => {
                 beforeEndPush()
             }
         })
-        
-        const push = throttle((...args: any[]) => {
-            const name = (route.name || 'welcome1').toString()
-            if(args[0] === 'prev') {
-                router.push({ name: pushMapPrev[name] })
-            } else {
-                router.push({ name: pushMapNext[name] })
-            }
-        }, 500)
-        const beforeEndPush = () => {
-            const distanceX = Math.abs(distance.value?.x || 0)
-            if(distanceX > 100) {
-                direction.value === 'left' ? push('prev') : push('next')
-            }
-        }
         const { routeDirection } = useRouteDirection()
-        // watchEffect(() => {
-            
-        // })
-
+        const { beforeEndPush } = useRoutePush(distance, direction)
+    
         return () => (  
             <div class={s.welcome}>
                 <header>
