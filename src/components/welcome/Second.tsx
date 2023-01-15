@@ -1,10 +1,10 @@
 import s from './Welcome.module.scss'
-import icon from '../../assets/icons/clock.svg'
+import { Icon } from '../icon/Icon'
 
 export const Second = () => (
     <div class={s.wrapper}>
         <div class={s.card}>
-            <img src={icon} alt="" />
+            <Icon name="clock" width="130px" />
             <h2>每日提醒<br />不会遗漏每一笔账单</h2>
         </div>
     </div>

@@ -1,10 +1,10 @@
 import { defineComponent, h, ref, Transition, VNode } from 'vue';
 import { RouteLocationNormalizedLoaded, RouterView, useRoute, useRouter } from 'vue-router';
 import s from './Welcome.module.scss'
-import logo from '../assets/icons/logo.svg'
 import { useSwipe } from '../hooks/useSwipe';
 import { useRouteDirection } from '../hooks/useRouteDirection';
 import { useRoutePush } from '../hooks/useRoutePush';
+import { Icon } from '../components/icon/Icon';
 
 export const Welcome = defineComponent({
     setup() {
@@ -22,7 +22,7 @@ export const Welcome = defineComponent({
         return () => (  
             <div class={s.welcome}>
                 <header>
-                    <img src={logo} alt="123" />
+                    <Icon name="logo" width="64px" height="68px" />
                     <h1>山竹记账</h1>
                 </header>
                 <main ref={main}>
