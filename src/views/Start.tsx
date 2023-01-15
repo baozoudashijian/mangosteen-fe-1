@@ -1,5 +1,6 @@
 import { defineComponent } from 'vue';
 import { Button } from '../components/button/Button';
+import { FloatButton } from '../components/float_button/FloatButton';
 import s from './Start.module.scss'
 
 export const Start = defineComponent({
@@ -10,6 +11,9 @@ export const Start = defineComponent({
         return () => (
             <div class={s.button_wrapper}>
                 <Button class={s.button} onClick={onclick}>按钮</Button>
+                <FloatButton>
+                    
+                </FloatButton>
             </div>
         )
     }
