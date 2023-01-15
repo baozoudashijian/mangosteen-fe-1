@@ -1,11 +1,15 @@
 import { defineComponent } from 'vue';
+import { Icon } from '../icon/Icon';
 import s from './FloatButton.module.scss';
 
-export const FloatButton = defineComponent({
+interface Props {
+    onClick: (e: MouseEvent) => void
+}
+export const FloatButton = defineComponent<Props>({
     setup(props, context) {
         return () => (
-            <div>
-                {context.slots.default?.()}
+            <div class={s.floatButton}>
+                <Icon name="plus" width="50%" height="50%" />
             </div>
         )
     }
