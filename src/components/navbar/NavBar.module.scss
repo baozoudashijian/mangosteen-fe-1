@@ -1,0 +1,15 @@
+.navbar {
+    padding: 50px 24px 14px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-image: linear-gradient(to bottom, var(--navbar-bg-start) 0%, var(--navbar-bg-end) 100%);
+    &_icon {
+        position: relative;
+        top: 2px;
+    }
+    &_text {
+        font-size: var(--navbar-font-size);
+        color: var(--navbar-text);
+    }
+}

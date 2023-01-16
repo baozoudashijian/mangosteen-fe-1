@@ -3,6 +3,7 @@ import { Button } from '../components/button/Button';
 import { Center } from '../components/center/Center';
 import { FloatButton } from '../components/float_button/FloatButton';
 import { Icon } from '../components/icon/Icon';
+import { NavBar } from '../components/navbar/NavBar';
 import s from './Start.module.scss'
 
 export const Start = defineComponent({
@@ -12,6 +13,12 @@ export const Start = defineComponent({
         }
         return () => (
             <>
+                <NavBar>
+                    {{
+                        default: '山竹记账',
+                        icon: () => <Icon name="menu" width="50" height="37.5" />
+                    }}
+                </NavBar>
                 <main class={s.main}>
                     <Center direction="column">
                         <Icon name="pig" />
