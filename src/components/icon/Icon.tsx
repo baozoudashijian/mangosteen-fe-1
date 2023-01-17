@@ -1,9 +1,10 @@
 import { defineComponent } from 'vue';
+
 export const Icon = defineComponent({
-    props: ['name', 'width', 'height'],
+    props: ['name', 'width', 'height', 'onClick'],
     setup(props, context) {
         return () => (
-            <svg style={{width: props.width, height: props.height}}>
+            <svg style={{width: props.width, height: props.height}} onClick={props.onClick}>
                 <use xlinkHref={`#${props.name}`}></use>
             </svg>
         )
