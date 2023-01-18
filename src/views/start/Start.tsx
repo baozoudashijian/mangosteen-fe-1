@@ -1,11 +1,12 @@
 import { defineComponent, ref } from 'vue';
-import { Button } from '../components/button/Button';
-import { Center } from '../components/center/Center';
-import { FloatButton } from '../components/float_button/FloatButton';
-import { Icon } from '../components/icon/Icon';
-import { NavBar } from '../components/navbar/NavBar';
-import { OverLay } from '../components/overlay/OverLay';
-import { OverLayList } from '../components/overlay/OverLay'
+import { RouterLink } from 'vue-router';
+import { Button } from '../../components/button/Button';
+import { Center } from '../../components/center/Center';
+import { FloatButton } from '../../components/float_button/FloatButton';
+import { Icon } from '../../components/icon/Icon';
+import { NavBar } from '../../components/navbar/NavBar';
+import { OverLay } from '../../components/overlay/OverLay';
+import { OverLayList } from '../../components/overlay/OverLay'
 import s from './Start.module.scss'
 
 
@@ -40,7 +41,9 @@ export const Start = defineComponent({
                     </Center>
                 </main>
                 <div class={s.button_wrapper}>
-                    <Button class={s.button} onClick={onclick}>按钮</Button>
+                    <RouterLink to={'/items'}>
+                        <Button class={s.button} onClick={onclick}>开始记账</Button>
+                    </RouterLink>
                 </div>
                 <FloatButton onClick={onclick} />
                 <OverLay visible={visible.value} onClose={closeOverlay} list={overLayData.value}/>

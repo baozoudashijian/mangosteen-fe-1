@@ -1,10 +1,10 @@
 import { defineComponent, h, ref, Transition, VNode } from 'vue';
 import { RouteLocationNormalizedLoaded, RouterView, useRoute, useRouter } from 'vue-router';
 import s from './Welcome.module.scss'
-import { useSwipe } from '../hooks/useSwipe';
-import { useRouteDirection } from '../hooks/useRouteDirection';
-import { useRoutePush } from '../hooks/useRoutePush';
-import { Icon } from '../components/icon/Icon';
+import { useSwipe } from '../../hooks/useSwipe';
+import { useRouteDirection } from '../../hooks/useRouteDirection';
+import { useRoutePush } from '../../hooks/useRoutePush';
+import { Icon } from '../../components/icon/Icon';
 
 export const Welcome = defineComponent({
     setup() {
