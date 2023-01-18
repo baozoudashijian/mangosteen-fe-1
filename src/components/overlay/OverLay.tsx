@@ -1,9 +1,13 @@
 import { defineComponent, PropType, Ref } from 'vue';
-import { Center } from '../center/Center';
 import { Icon } from '../icon/Icon';
 import { Layer } from '../layer/Layer';
 import s from './OverLay.module.scss';
 
+export interface OverLayItem {
+    icon: string;
+    text: string;
+}
+export type OverLayList = Array<OverLayItem>
 export const OverLay = defineComponent({
     props: {
         visible: {
@@ -13,16 +17,16 @@ export const OverLay = defineComponent({
         onClose: {
             type: Function as PropType<() => void>
         },
-        data: {
-            type: Array
+        list: {
+            type: Array as PropType<OverLayList>,
+            default: []
         }
     },
     setup(props, context) {
-        const { data } = props
+        const { list } = props
         const closeLayer = () => {
             props.onClose?.()
         }
-        console.log(data, 'data')
         return () => (
             <>
                 <Layer visible={props.visible} onClick={closeLayer} />
@@ -33,7 +37,7 @@ export const OverLay = defineComponent({
                     </div>
                     <main class={s.overlay_wrapper_main}>
                         {
-                            data.value.map((item) => {
+                            list.map((item: OverLayItem) => {
                                 return (
                                     <div class={s.overlay_wrapper_main_item}>
                                         <Icon name={item.icon} width="32" height="32" />
