@@ -8,12 +8,13 @@
         text-align: center;
         height: 46px;
         line-height: 46px;
-        color: white;
-        background-color: #c00;
+        color: var(--tab-item-text);
+        background: linear-gradient(to bottom, var(--welcome-bg-end) 0, var(--navbar-bg-end) 100%) ;
         position: relative;
+        overflow: hidden;
     }
     .tabsWrapItemActive {
-        
+        overflow: hidden;
     }
     .tabsWrapItemActive::after {
         content: '';
@@ -22,6 +23,6 @@
         bottom: 0;
         width: 100%;
         height: 2px;
-        background-color: aqua;
+        background-color: var(--tab-item-line);
     }
 }

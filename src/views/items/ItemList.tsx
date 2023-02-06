@@ -15,7 +15,6 @@ export const ItemList = defineComponent({
         }
         return () => (
             <>
-            <Tab label='支出' name="expend">123</Tab>
             <MainLayout>
                 {{
                     icon: () => <Icon name="left" width="50" height="37.5" fill="#fff" />,
