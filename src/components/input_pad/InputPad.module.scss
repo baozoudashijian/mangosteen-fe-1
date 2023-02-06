@@ -1,0 +1,40 @@
+.dateAndAmount {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    >.date {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 12px;
+        > svg {
+            margin-right: 8px;
+        }
+    }
+    >.amount {
+        font-size: 20px;
+    }
+}
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    border-top: 1px solid var(--input-pad-border-color);
+    border-left: 1px solid var(--input-pad-border-color);
+    > button {
+        border: none;
+        width: 25%;
+        height: 48px;
+        font-size: 20px;
+        border-right: 1px solid var(--input-pad-border-color);
+        border-bottom: 1px solid var(--input-pad-border-color);
+        background: transparent;
+        &:nth-child(13), 
+        &:nth-child(14), 
+        &:nth-child(15), 
+        &:nth-child(16) {
+            border-bottom: none;
+        }
+        
+    }
+}
