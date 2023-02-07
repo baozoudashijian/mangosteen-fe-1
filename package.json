@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "sass": "^1.57.1",
+    "vant": "^4.0.10",
     "vue": "^3.2.25",
     "vue-router": "4.1.6"
   },

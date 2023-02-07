@@ -4,6 +4,7 @@ import { InputPad } from '../../components/input_pad/InputPad';
 import { Tab } from '../../components/Tabs/Tab';
 import { Tabs } from '../../components/Tabs/Tabs';
 import { MainLayout } from '../../layouts/MainLayout';
+import { Button } from 'vant';
 import s from './ItemList.module.scss';
 
 export const ItemList = defineComponent({
