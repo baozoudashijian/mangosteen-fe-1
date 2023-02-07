@@ -9,22 +9,27 @@ export const InputPad = defineComponent({
     setup(props, context) {
         const currentDate = ref(['2021', '01', '01'])
         const popupVisible = ref(false)
+        const amount = ref('0')
+        const appendText = (n: string) => {
+            if(amount.value === '0') {
+                amount.value = n
+            } else {
+                amount.value += n
+            }
+        }
         const buttonMap = [
-            { text: '1', onClick: () => { } },
-            { text: '2', onClick: () => { } },
-            { text: '3', onClick: () => { } },
-            { text: '清空', onClick: () => { } },
-            { text: '4', onClick: () => { } },
-            { text: '5', onClick: () => { } },
-            { text: '6', onClick: () => { } },
-            { text: '+', onClick: () => { } },
-            { text: '7', onClick: () => { } },
-            { text: '8', onClick: () => { } },
-            { text: '9', onClick: () => { } },
-            { text: '-', onClick: () => { } },
-            { text: '.', onClick: () => { } },
-            { text: '0', onClick: () => { } },
-            { text: '删除', onClick: () => { } },
+            { text: '1', onClick: () => { appendText('1') } },
+            { text: '2', onClick: () => { appendText('2') } },
+            { text: '3', onClick: () => { appendText('3') } },
+            { text: '4', onClick: () => { appendText('4') } },
+            { text: '5', onClick: () => { appendText('5') } },
+            { text: '6', onClick: () => { appendText('6') } },
+            { text: '7', onClick: () => { appendText('7') } },
+            { text: '8', onClick: () => { appendText('8') } },
+            { text: '9', onClick: () => { appendText('9') } },
+            { text: '.', onClick: () => { appendText('.') } },
+            { text: '0', onClick: () => { appendText('0') } },
+            { text: '清空', onClick: () => { amount.value = '0' } },
             { text: '提交', onClick: () => { } },
         ]
         const selectTime = (selectedValues : string[]) => {
@@ -38,7 +43,7 @@ export const InputPad = defineComponent({
                         <Icon name="notes" width="24" height="24" />
                         <span>{time(new Date(currentDate.value.join('-'))).format('YYYY-MM-DD')}</span>
                     </span>
-                    <span class={s.amount}>100</span>
+                    <span class={s.amount}>{amount.value}</span>
                 </div>
                 <div class={s.buttons}>
                     {buttonMap.map(button => {
