@@ -11,11 +11,28 @@ export const InputPad = defineComponent({
         const popupVisible = ref(false)
         const amount = ref('0')
         const appendText = (n: string) => {
-            if(amount.value === '0') {
-                amount.value = n
-            } else {
-                amount.value += n
+            const dotIndex = amount.value.indexOf('.')
+            // 保留小数点后两位
+            if(dotIndex >=0 && amount.value.length - dotIndex > 2) {
+                return
             }
+            if(n === '0') {
+                if(amount.value === '0') {
+                    amount.value = n
+                    return
+                }
+            } else if(n === '.') { // 点后面不允许输入点
+                if(dotIndex >= 0) {
+                    return
+                }
+            } else if(amount.value.length > 16) {
+                return
+            } else {
+                if(amount.value === '0') {
+                    amount.value = ''
+                }
+            }
+            amount.value += n
         }
         const buttonMap = [
             { text: '1', onClick: () => { appendText('1') } },
