@@ -1,4 +1,5 @@
 import { defineComponent } from 'vue';
+import { Button } from '../../components/button/Button';
 import { Icon } from '../../components/icon/Icon';
 import { MainLayout } from '../../layouts/MainLayout';
 import s from './TagCreate.module.scss';
@@ -10,47 +11,185 @@ export const TagCreate = defineComponent({
                     text: () => '新建标签',
                     icon: () => <Icon name="left" width="50" height="37.5" fill="#fff" />,
                     default: () => {
-                        return <form>
-                            <div>
-                                <label>
-                                    <span>标签名</span>
-                                    <input type="text" />
-                                </label>
-                            </div>
-                            <div>
-                                <label>
-                                    <span>符号</span>
-                                    <div>
-                                        <nav>
-                                            <span>表情</span>
-                                            <span>手势</span>
-                                            <span>职业</span>
-                                            <span>衣服</span>
-                                            <span>动物</span>
-                                            <span>自然</span>
-                                            <span>食物</span>
-                                            <span>运动</span>
-                                        </nav>
-                                        <ol>
-                                            <li>1</li>
-                                            <li>2</li>
-                                            <li>3</li>
-                                            <li>4</li>
-                                            <li>5</li>
-                                            <li>6</li>
-                                            <li>7</li>
-                                            <li>8</li>
-                                            <li>9</li>
-                                            <li>10</li>
-                                        </ol>
+                        return <form class={s.form}>
+                            <div class={s.formRow}>
+                                <label class={s.formLabel}>
+                                    <span class={s.formItem_name}>标签名</span>
+                                    <div class={s.formItem_value}>
+                                        <input class={[s.formItem, s.input, s.error]}></input>
+                                    </div>
+                                    <div class={s.formItem_errorHint}>
+                                        <span>必填</span>
                                     </div>
                                 </label>
                             </div>
-                            <div>
-                                <p>记账时长按标签即可进行编辑</p>
+                            <div class={s.formRow}>
+                                <label class={s.formLabel}>
+                                    <span class={s.formItem_name}>符号</span>
+                                    <div class={s.formItem_value}>
+                                        <div class={[s.formItem, s.emojiList, s.error]}>
+                                            <nav>
+                                                <span class={s.selected}>表情</span>
+                                                <span>手势</span>
+                                                <span>职业</span>
+                                                <span>衣服</span>
+                                                <span>动物</span>
+                                                <span>自然</span>
+                                                <span>食物</span>
+                                                <span>运动</span>
+                                                <span>表情</span>
+                                                <span>手势</span>
+                                                <span>职业</span>
+                                                <span>衣服</span>
+                                                <span>动物</span>
+                                                <span>自然</span>
+                                                <span>食物</span>
+                                                <span>运动</span>
+                                            </nav>
+                                            <ol>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                                <li>😀</li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                    <div class={s.formItem_errorHint}>
+                                        <span>必填</span>
+                                    </div>
+                                </label>
                             </div>
-                            <div>
-                                <button>确定</button>
+                            <p class={s.tips}>记账时长按标签即可进行编辑</p>
+                            <div class={s.formRow}>
+                                <div class={s.formItem_value}>
+                                    <Button class={[s.formItem, s.btn]}>确定</Button>
+                                </div>
                             </div>
                         </form>
                     }
