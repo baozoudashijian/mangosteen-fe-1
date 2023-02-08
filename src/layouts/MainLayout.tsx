@@ -8,8 +8,8 @@ export const MainLayout = defineComponent({
             <>
                 <NavBar>
                     {{
-                        default: slots.text?.(),
-                        icon: slots.icon?.()
+                        default: () => slots.text?.(),
+                        icon: () => slots.icon?.()
                     }}
                 </NavBar>
                 {slots.default?.()}
