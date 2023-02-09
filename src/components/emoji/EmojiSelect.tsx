@@ -10,6 +10,7 @@ export const EmojiSelect = defineComponent({
     },
     setup(props, context) {
         const selected = ref(0)
+        const selectEmo = ref()
         const table: [string, string[]][] = [
             ['表情', ['face-smiling', 'face-affection', 'face-tongue', 'face-hand',
                 'face-neutral-skeptical', 'face-sleepy', 'face-unwell', 'face-hat',
@@ -35,6 +36,7 @@ export const EmojiSelect = defineComponent({
         }
         const onClickEmoji = (emoji: string) => {
             console.log(emoji)
+            selectEmo.value = emoji
             context.emit('update:modelValue', emoji)
         }
         const navs = computed(() => {
@@ -47,7 +49,7 @@ export const EmojiSelect = defineComponent({
         return () => {
             const emojis = table[selected.value][1].map((category) => {
                 let emojis = emojiList.find(array => array[0] === category) || ['', []]
-                return (emojis?.[1] as Array<string>).map(emo => <li onClick={() => onClickEmoji(emo)}>{emo}</li>)
+                return (emojis?.[1] as Array<string>).map(emo => <li class={selectEmo.value === emo ? s.showBorder : ''} onClick={() => onClickEmoji(emo)}>{emo}</li>)
             })
             return (
                 <div class={s.emojiList}>
