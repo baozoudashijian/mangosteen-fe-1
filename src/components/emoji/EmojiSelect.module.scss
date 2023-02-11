@@ -4,9 +4,6 @@
     border-radius: var(--input-radius);
     font-size: 18px;
     font-size: 14px;
-    &.error {
-      border-color: var(--error-color);
-    }
     > nav {
       display: flex;
       flex-wrap: nowrap;

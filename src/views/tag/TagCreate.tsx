@@ -47,7 +47,7 @@ export const TagCreate = defineComponent({
                                 <label class={s.formLabel}>
                                     <span class={s.formItem_name}>符号: {formData.sign}</span>
                                     <div class={s.formItem_value}>
-                                        <EmojiSelect class={[s.formItem, s.emojiList, s.error]} v-model={formData.sign} />
+                                        <EmojiSelect class={[s.formItem, s.emojiList, errors['sign'] ? s.error : '']} v-model={formData.sign} />
                                     </div>
                                     <div class={s.formItem_errorHint}>
                                         <span>{errors['sign'] ? errors['sign']?.[0] : '　'}</span>
