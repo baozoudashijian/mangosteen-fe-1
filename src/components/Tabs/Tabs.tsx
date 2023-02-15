@@ -7,6 +7,10 @@ export const Tabs = defineComponent({
             type: String,
             required: true
         },
+        sticky: {
+            type: Boolean,
+            default: false
+        },
         onUpdateSelected: {
             type: Function,
             required: true
@@ -19,7 +23,7 @@ export const Tabs = defineComponent({
         console.log(props.selected, 'selected')
         return () => (
             <>
-                <div class={s.tabsWrap}>
+                <div class={[s.tabsWrap, props.sticky ? s.sticky : '']}>
                     {array.map(item => {
                         return <div class={[s.tabsWrapItem, item.props?.name === props.selected ? s.tabsWrapItemActive : '']} onClick={() => props.onUpdateSelected(item.props?.name)}>
                             {item.props?.label}

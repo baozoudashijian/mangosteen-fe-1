@@ -1,10 +1,18 @@
 .inputPad_wrapper {
-    position: fixed;
-    bottom: 0;
-    left: 0;
+    // position: fixed;
+    // bottom: 0;
+    // left: 0;
     width: 100%;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+.tabs {
+    flex-grow: 1;
+    height: calc(100vh - 358px);
+    overflow: scroll; 
 }
 .tags_wrapper {
     display: flex;
     flex-wrap: wrap;
+
 }
