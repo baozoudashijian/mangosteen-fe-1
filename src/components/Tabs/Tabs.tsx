@@ -34,8 +34,7 @@ export const Tabs = defineComponent({
                     {array.find(item => item.props?.name === props.selected)}
                 </div>
             </>
-
-        }
+        )
     }
 })
 
