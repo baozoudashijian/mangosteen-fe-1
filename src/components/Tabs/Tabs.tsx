@@ -35,7 +35,7 @@ export const Tabs = defineComponent({
                 </div>
             </>
 
-        )
+        }
     }
 })
 
