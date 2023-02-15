@@ -14,11 +14,10 @@ export const Tabs = defineComponent({
     },
     setup(props, context) {
         const { slots } = context
-        const array = slots.default?.()
-        if(!array) return () => null
-        console.log(props.selected, 'selected')
-        return () => (
-            <>
+        return () => {
+            const array = slots.default?.()
+            if (!array) return () => null
+            return <>
                 <div class={s.tabsWrap}>
                     {array.map(item => {
                         return <div class={[s.tabsWrapItem, item.props?.name === props.selected ? s.tabsWrapItemActive : '']} onClick={() => props.onUpdateSelected(item.props?.name)}>
@@ -31,7 +30,7 @@ export const Tabs = defineComponent({
                 </div>
             </>
 
-        )
+        }
     }
 })
 
