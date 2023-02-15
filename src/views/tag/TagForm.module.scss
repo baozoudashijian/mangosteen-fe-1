@@ -41,3 +41,11 @@
       font-size: 12px;
     }
   }
+
+  // edit
+  .actions {
+    padding: 0 16px 16px;
+    > button {
+      width: 100%;
+    }
+  }

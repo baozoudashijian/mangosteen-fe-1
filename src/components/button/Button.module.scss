@@ -1,9 +1,16 @@
 .button {
-    border: 1px solid var(--button-bg);
     padding: 8px 16px;
-    background: var(--button-bg);
+    background: var(--button-bg-normal);
     color: var(--button-text);
     font-size: var(--button-font-size);
     border-radius: var(--button-radius);
     height: var(--button-height);
+    &.error {
+        background: var(--button-bg-error);
+        border: 1px solid var(--button-bg-error);
+    }
+    &.normal {
+        background: var(--button-bg-normal);
+        border: 1px solid var(--button-bg-normal);
+    }
 }
