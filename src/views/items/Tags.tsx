@@ -1,5 +1,14 @@
-import { defineComponent, ref } from 'vue';
+import { defineComponent, Ref, ref } from 'vue';
 import s from './Tags.module.scss';
+type Tag = {
+    id: number;
+    name: String;
+    sign: String;
+    category: String;
+}
+type SelectDataMap = {
+    [key: string]: Ref<Tag[]>
+}
 export const Tags = defineComponent({
     props: {
         selected: {
@@ -51,7 +60,7 @@ export const Tags = defineComponent({
             { id: 37, name: '彩票', sign: '￥', category: 'income' },
             { id: 38, name: '滴滴', sign: '￥', category: 'income' }
         ])
-        const selectData: any = {
+        const selectData: SelectDataMap = {
             'expend': refExpensesTags,
             'income': refIncomeTags
         }
@@ -59,8 +68,9 @@ export const Tags = defineComponent({
             console.log(id, 'id')
             context.emit('update:tagId', id)
         }
+        
         return () => (<>
-            {selectData[props.selected].value.map((tag: any) => {
+            {selectData[props.selected].value.map((tag: Tag) => {
                 return <div class={[s.tag, props.tagId === tag.id ? s.selected : '']} onClick={() => onTagClick(tag.id)}>
                     <div class={s.sign}>
                         {tag.sign}
