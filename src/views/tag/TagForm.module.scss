@@ -8,8 +8,6 @@
   .formRow {
     margin-top: 8px;
   }
-  .formLabel {
-  }
   .formItem {
     min-height: var(--input-min-height);
     max-width: 100%;
@@ -28,8 +26,6 @@
       }
     &.btn {
         width: 100%;
-    }
-    &_name {
     }
     &_value {
       display: flex;

@@ -1,5 +1,5 @@
 import { defineComponent, ref } from 'vue';
-import { time } from '../../shared/time';
+import { Time } from '../../shared/time';
 import { Icon } from '../icon/Icon';
 import { DatePicker } from 'vant'
 import { Popup } from 'vant';
@@ -58,7 +58,7 @@ export const InputPad = defineComponent({
                 <div class={s.dateAndAmount}>
                     <span class={s.date} onClick={() => popupVisible.value = true}>
                         <Icon name="notes" width="24" height="24" />
-                        <span>{time(new Date(currentDate.value.join('-'))).format('YYYY-MM-DD')}</span>
+                        <span>{new Time(new Date(currentDate.value.join('-'))).format()}</span>
                     </span>
                     <span class={s.amount}>{amount.value}</span>
                 </div>
