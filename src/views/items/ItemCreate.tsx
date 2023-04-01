@@ -3,6 +3,7 @@ import { Icon } from '../../components/icon/Icon';
 import { Tab } from '../../components/Tabs/Tab';
 import { Tabs } from '../../components/Tabs/Tabs';
 import { MainLayout } from '../../layouts/MainLayout';
+import { Time } from '../../shared/time';
 import s from './ItemCreate.module.scss';
 import { ItemSummary } from './ItemSummary';
 
@@ -20,16 +21,16 @@ export const ItemCreate = defineComponent({
                     default: () => {
                         return <Tabs selected={selected.value} onUpdateSelected={onUpdateSelected}>
                             <Tab label="本月" name="month">
-                                <ItemSummary />
+                                <ItemSummary startDate='2000-01-01' endDate='2000-12-31' />
                             </Tab>
                             <Tab label="上月" name="lastmonth">
-                                <ItemSummary />
+                                {/* <ItemSummary /> */}
                             </Tab>
                             <Tab label="今年" name="year">
-                                <ItemSummary />
+                                {/* <ItemSummary /> */}
                             </Tab>
                             <Tab label="自定义时间" name="diytime">
-                                <ItemSummary />
+                                {/* <ItemSummary /> */}
                             </Tab>
                         </Tabs>
 
