@@ -1,4 +1,4 @@
-import { defineComponent, ref } from 'vue';
+import { defineComponent, reactive, ref } from 'vue';
 import { Icon } from '../../components/icon/Icon';
 import { Tab } from '../../components/Tabs/Tab';
 import { Tabs } from '../../components/Tabs/Tabs';
@@ -9,28 +9,46 @@ import { ItemSummary } from './ItemSummary';
 
 export const ItemCreate = defineComponent({
     setup(props, context) {
-        const selected = ref('expend')
+        const selected = ref('month')
         const onUpdateSelected = (name: string) => {
             selected.value = name
         }
+        const customTime = reactive({ 
+            start: new Time(), end: new Time()
+        })
+        const time = new Time()
+        const timeList = [
+            {
+                start: time.firstDayOfMounth(),
+                end: time.lastDayOfMounth()
+            },
+            {
+                start: time.add(-1, 'month').firstDayOfMounth(),
+                end: time.add(-1, 'month').lastDayOfMounth()
+            },
+            {
+                start: time.firstDayOfYear(),
+                end: time.lastDayOfYear()
+            }
+        ]
         return () => (
             <MainLayout>
                 {{
-                    title: () => '山竹记账',
+                    text: () => '山竹记账',
                     icon: () => <Icon name="menu" width="50" height="37.5" />,
                     default: () => {
                         return <Tabs selected={selected.value} onUpdateSelected={onUpdateSelected}>
                             <Tab label="本月" name="month">
-                                <ItemSummary startDate='2000-01-01' endDate='2000-12-31' />
+                                <ItemSummary startDate={timeList[0].start.format()} endDate={timeList[0].end.format()} />
                             </Tab>
                             <Tab label="上月" name="lastmonth">
-                                {/* <ItemSummary /> */}
+                                <ItemSummary startDate={timeList[1].start.format()} endDate={timeList[1].end.format()} />
                             </Tab>
                             <Tab label="今年" name="year">
-                                {/* <ItemSummary /> */}
+                                <ItemSummary startDate={timeList[2].start.format()} endDate={timeList[2].end.format()}/>
                             </Tab>
                             <Tab label="自定义时间" name="diytime">
-                                {/* <ItemSummary /> */}
+                                <ItemSummary  startDate={customTime.start.format()} endDate={customTime.start.format()} />
                             </Tab>
                         </Tabs>
 
